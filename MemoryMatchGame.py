@@ -64,7 +64,15 @@ def show_symbol(x, y):
                 root.destroy()
         first = True
         
+def update_stats():
+    elapsed_time = round(time.time() - start_time)
+    elapsed_time_str = time.strftime('%M:%S', time.gmtime(elapsed_time))
 
+    moves_label.config(text=f"Moves: {moves}")
+    pairs_selected_label.config(text=f"Pairs Selected: {pairs}")
+    pairs_remaining_label.config(text=f"Pairs Remaining: {int(len(buttons) / 2) - pairs}")
+    timer_label.config(text=f"Time Elapsed: {elapsed_time_str}")
+    root.after(1000, update_stats)
         
 
 # Preload Images
@@ -98,5 +106,23 @@ for x in range(6):
         button.image_path = image_path
 
 root.iconphoto(False, get_img("./img/memory-icon.png"))
+
+# Stats Section
+stats_frame = Frame(root)
+stats_frame.grid(row=6, columnspan=6, pady=12)
+moves_label = Label(stats_frame, text="Moves: 0", font=("Arial", 14), fg="blue")
+moves_label.pack(side="left", padx=10)
+
+pairs_selected_label = Label(stats_frame, text="Pairs Selected: 0", font=("Arial", 14), fg="green")
+pairs_selected_label.pack(side="left", padx=10)
+
+pairs_remaining_label = Label(stats_frame, text="Pairs Remaining: 15", font=("Arial", 14), fg="red")
+pairs_remaining_label.pack(side="left", padx=10)
+
+start_time = time.time()
+timer_label = Label(stats_frame, text="Time Elapsed: 00:00", font=("Arial", 14), fg="purple")
+timer_label.pack(side="left", padx=10)    
+
+update_stats()
 
 root.mainloop()
