@@ -1,5 +1,5 @@
-#MemoryMatchGame.py
-from tkinter import Tk, messagebox, Button, DISABLED, Frame, Label, OptionMenu, StringVar
+#! C:\\Program Files\\Python37-32\\pythonw.exe
+from tkinter import Tk, messagebox, Button, DISABLED, Frame, Label
 from PIL import Image, ImageTk
 import random, time
 
@@ -8,16 +8,16 @@ def get_img(full_path):
     image = Image.open(full_path)
     image.thumbnail((150, 150), Image.LANCZOS)
     return ImageTk.PhotoImage(image)
+
     
 root = Tk() # creates a new tkinter window
 root.title('Memory Match Game')
 root.resizable(width = False, height = False)
-
-
-# Set the window position
+# # Set the window position
 window_x = 300  # X-coordinate of the window position
 window_y = 28  # Y-coordinate of the window position
 root.geometry(f"+{window_x}+{window_y}")
+
 buttons = {} # dict to store the buttons
 first = True # it checks if symbol is the first match
 
@@ -36,6 +36,7 @@ all_images = ['attack-titan.png', 'boy.png', 'catgirl.png', 'dragon.png', 'erza.
 image_list = (random.sample(all_images, 12) * 2)
 random.shuffle(image_list)
 
+default_image = get_img('./img/blue-tile.jpg')
 
 # x and y tells which button has been pressed as x is column no and y is row no for that particular button
 def show_symbol(x, y): 
@@ -83,7 +84,6 @@ for image_path in image_list:
         photo = get_img(full_path)
         image_cache[full_path] = photo
 
-default_image = get_img('./img/blue-tile.jpg')
 
 frame = Frame(root, padx=10, pady=10)
 frame.grid(row=0, column=0)

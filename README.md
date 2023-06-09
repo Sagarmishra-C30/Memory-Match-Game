@@ -14,27 +14,21 @@ Memory Match Game is a simple game built using Python and the Tkinter library. T
 
 To run the Memory Match Game, you need to have the following installed:
 
-- Python (version 3.6 or higher)
+- Python (version 3.7 or higher)
 - Tkinter library
 - PIL (Python Imaging Library)
 
 ## How to Run
 
-1. Clone the repository or download the `MemoryMatchGame.py` file.
+1. Clone the repository.
 
-2. Open a terminal or command prompt and navigate to the directory containing the `MemoryMatchGame.py` file.
-
-3. Install pillow from *requirements.txt* file:
+2. Install pillow from *requirements.txt* file:
 	
 	```
 	pip install -r requirements.txt 
 	```
 
-4. Run the following command to start the game:
-
-   ```
-   python MemoryMatchGame.py
-   ```
+3. To run the game, simply double click the **MemoryMatchGame.pyw** file
 
    This will launch the game window.
 
@@ -61,7 +55,7 @@ To run the Memory Match Game, you need to have the following installed:
 
 You can customize the game by modifying the following aspects:
 
-- Images: Add or replace the images in the `img` folder. The game supports any size of images (best option includes type: png, ratio: 150x150), and their file names should be added to the `all_images` list in the `MemoryMatchGame.py` file.
+- Images: Add or replace the images in the `img` folder. The game supports any size of images (best option includes type: png, ratio: 150x150), and their file names should be added to the `all_images` list in the `MemoryMatchGame.pyw` file.
 
 - Grid Size: You can modify the grid size by changing the values of the `range()` functions in the for loop. By default, it creates a 6x4 grid.
 
